@@ -1,45 +1,27 @@
 <?php
+$servername = "192.168.1.9";
+$username = "perez";
+$password = "moya1234";
+$dbname = "TendaDB";
 
-    $conexion = mysqli_connect('192.168.1.8', 'perez', '', 'TendaDB');
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
 
+$sql = "SELECT id, modelo, precio FROM Producte";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo $row["id"]. " - Model: " . $row["model"]. " " . $row["precio"]. "<br>". "<a href='#'>View</a>"
+    ;
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
 ?>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitxa</title>
-</head>
-
-<body>
-    <table>
-
-        <tr>
-            <td>id</td>
-            <td>Modelo</td>
-            <td>Preu</td>
-        </tr>
-
-            <?php
-                $sql = "SELECT * from Producte";
-                $result = mysqli_query($conexion, $sql);
-
-                while($mostrar = mysqli_fetch_array($result)){
-            ?>
-        
-        <tr>
-            <td><?php echo $mostrar['id']?></td>
-            <td><?php echo $mostrar['modelo']?></td>
-            <td><?php echo $mostrar['preu']?></td>
-        </tr>
-<?php
-            }
-?>
-    </table>
-</body>
-
-</html>
