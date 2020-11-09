@@ -17,7 +17,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo $row["id"]. " - Model: " . $row["model"]. " " . $row["precio"]. "<br>". "<a href='#'>View</a>"
+    echo $row["id"]. " - Model: " . $row["modelo"]. " " . $row["precio"]. "<br>". "<a href='#'>View</a>"
     ;
   }
 } else {
