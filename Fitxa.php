@@ -1,5 +1,5 @@
 <?php
-$servername = "192.168.1.9";
+$servername = "0.0.0.0";
 $username = "perez";
 $password = "moya1234";
 $dbname = "TendaDB";
