@@ -19,7 +19,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT id, modelo, precio FROM Producte";
+$sql = "SELECT * FROM Producte";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
