@@ -7,7 +7,7 @@
 </head>
 <body>
 <?php
-$servername = "172.16.58.9";
+$servername = "0.0.0.0";
 $username = "perez";
 $password = "moya1234";
 $dbname = "TendaDB";
